@@ -32,6 +32,7 @@ traverse_dir(path)
 print(ll)
 dataframe = spark.createDataFrame(ll)
 dataframe.show()
+dataframe.write.format('csv').option('header',True).mode('overwrite').option('sep',',').save('/data/list_file.csv')
 #for f in fs.get(conf).listStatus(path):
     #print(f.getPath(), f.getLen())
 #    print(f.toString())
